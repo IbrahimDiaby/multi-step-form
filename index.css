@@ -23,7 +23,7 @@
   --blue-300: hsl(228, 100%, 84%);
   --blue-200: hsl(206, 94%, 87%);
   --red-500: hsl(354, 84%, 57%);
-  --black : #000;
+  --black: #000;
 
   /* Neutral Colors */
   --grey-500: hsl(231, 11%, 63%);
@@ -137,7 +137,7 @@ body {
   background: url("/assets/images/bg-sidebar-desktop.svg") no-repeat;
   background-size: cover;
   width: clamp(250px, 300px, 50%);
-  height: clamp(500px, 600px, 90%);
+  height: 100%;
   color: var(--white);
   border-radius: 12px;
   text-transform: uppercase;
@@ -162,7 +162,7 @@ body {
   border: 1px solid var(--white);
 }
 
-.step-index.active{
+.step-index.active {
   background: var(--blue-200);
   color: var(--black);
 }
@@ -182,8 +182,7 @@ body {
   text-transform: uppercase;
 }
 
-.step-card-container{
-  padding: 10px 30px;
+.step-card-container {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -191,20 +190,21 @@ body {
   flex: 1 1 100%;
 }
 
-.step-slide, form{
+.step-slide,
+form {
   display: flex;
   flex-direction: column;
   gap: 20px 0;
   position: relative;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.step-slide:nth-child(2),
-.step-slide:nth-child(3),
-.step-slide:nth-child(4),
-.step-slide:nth-child(5){
-  display: none;
+.step-slide {
+  padding: 10px 30px;
+  transition: all 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .title {
@@ -223,7 +223,7 @@ body {
   justify-content: end;
 }
 
-.btn{
+.btn {
   padding: 10px 20px;
   border: 1px solid transparent;
   font-weight: bold;
@@ -232,22 +232,22 @@ body {
   border-radius: 8px;
   width: fit-content;
   cursor: pointer;
-  transition: all .6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: transparent;
   color: var(--blue-950);
-    border: 1px solid var(--blue-950);
+  border: 1px solid var(--blue-950);
 }
 
-.form-control{
+.form-control {
   display: flex;
   flex-direction: column;
   gap: 10px 0;
 }
 
-input{
+input {
   padding: 0 10px;
   height: 40px;
   border-radius: 8px;
@@ -255,19 +255,19 @@ input{
   vertical-align: middle;
   color: var(--blue-950);
   font-weight: bold;
-  transition: all .6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-input:focus{
+input:focus {
   border: 1px solid transparent;
   outline: 2px solid var(--blue-950);
 }
 
-input::placeholder{
+input::placeholder {
   color: var(--grey-500);
 }
 
-label{
+label {
   font-weight: bold;
   color: var(--blue-950);
 }
