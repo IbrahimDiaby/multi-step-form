@@ -301,6 +301,11 @@ input::placeholder {
 .label-container .required-error{
   font-weight: bold;
   color: var(--red-500);
+  display: none;
+}
+
+.label-container .required-error.visible{
+  display:flex;
 }
 
 label {
