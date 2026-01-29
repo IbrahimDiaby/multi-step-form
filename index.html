@@ -112,7 +112,7 @@
         </div>
 
         <div class="step-slide">
-          <form action="#" method="post">
+          <form action="#" id="select-plan" method="post">
             <!-- Step 2 start -->
             <h1 class="title">
               Select your plan 
@@ -120,11 +120,32 @@
             <h3 class="subtitle">
               You have the option of monthly or yearly billing.
             </h3>
-            <div class="plan">Arcade $9/mo</div> 
-            <div class="plan">Advanced $12/mo</div> 
-            <div class="plan">Pro $15/mo</div> 
+
+            <div class="plans-container">
+              <div class="plan active">
+                <img src="/assets/images/icon-arcade.svg" class="icon-plans" alt="Arcade Icon Plan" srcset="/assets/images/icon-arcade.svg">
+                <div class="info">
+                  <h3 class="title">Arcade</h3>
+                  <p class="subtitle">$9/mo</p>
+                </div>
+              </div> 
+              <div class="plan">
+                <img src="/assets/images/icon-advanced.svg" class="icon-plans" alt="Arcade Icon Plan" srcset="/assets/images/icon-advanced.svg">
+                <div class="info">
+                  <h3 class="title">Advanced</h3>
+                  <p class="subtitle">$12/mo</p>
+                </div>
+              </div> 
+              <div class="plan">
+                <img src="/assets/images/icon-pro.svg" class="icon-plans" alt="Arcade Icon Plan" srcset="/assets/images/icon-pro.svg">
+                <div class="info">
+                  <h3 class="title">Pro</h3>
+                  <p class="subtitle">$15/mo</p>
+                </div>
+              </div> 
+            </div>
             
-            <div class="frequency">Monthly Yearly</div>
+            <div class="frequency"><span class="active">Monthly</span> <input type="radio" name="switch" id="switch"> <span class="">Yearly</span></div>
 
             <div class="btn-container space-between">
               <button class="btn btn-outline previous">Go Back</button>

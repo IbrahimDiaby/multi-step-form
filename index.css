@@ -223,7 +223,7 @@ form {
   justify-content: end;
 }
 
-.btn-container.space-between{
+.btn-container.space-between {
   justify-content: space-between;
 }
 
@@ -256,12 +256,11 @@ form {
   border: none;
 }
 
-
 .btn-confirm {
   background-color: var(--purple-600);
 }
 
-.btn-confirm:hover{
+.btn-confirm:hover {
   background-color: var(--purple-600);
   color: var(--white);
   opacity: 0.6;
@@ -284,7 +283,8 @@ input {
   transition: all 0.6s ease-in-out;
 }
 
-input:focus, input:hover {
+input:focus,
+input:hover {
   border: 1px solid var(--purple-600);
   outline: 1px solid var(--purple-600);
 }
@@ -298,14 +298,14 @@ input::placeholder {
   justify-content: space-between;
 }
 
-.label-container .required-error{
+.label-container .required-error {
   font-weight: bold;
   color: var(--red-500);
   display: none;
 }
 
-.label-container .required-error.visible{
-  display:flex;
+.label-container .required-error.visible {
+  display: flex;
 }
 
 label {
@@ -313,7 +313,7 @@ label {
   color: var(--blue-950);
 }
 
-.congrats-container{
+.congrats-container {
   display: flex;
   flex-direction: column;
   gap: 20px 10px;
@@ -324,14 +324,61 @@ label {
   text-align: center;
 }
 
+/* Plans */
+
+.plans-container {
+  display: flex;
+  gap: 10px 20px;
+  justify-content: space-between;
+}
+
+.plan {
+  padding: 10px 20px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem 0;
+  min-width: 150px;
+  min-height: 150px;
+  display: flex;
+  border: 1px solid var(--blue-950);
+  border-radius: 12px;
+  cursor: pointer;
+  flex: 1 1 150;
+}
+
+.plan.active, .plan:hover {
+  border: 1px solid var(--purple-600);
+}
+
+.frequency{
+  font-weight: bold;
+  display: flex;
+  background-color: var(--blue-100);
+  justify-content: center;
+  align-items: center;
+  gap: 0 20px;
+  border-radius: 10px;
+  color: var(--grey-500);
+}
+
+.frequency span.active{
+  color: var(--blue-950);
+}
+
 /* Icons */
 
-.icon-thank-you{
+.icon-thank-you {
   width: 60px;
   height: 60px;
 }
 
+.icon-plans {
+  width: 36px;
+  height: 36px;
+}
 
+/*  */
 
 @media screen and (width < 375px) {
 }

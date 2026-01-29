@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const steps = document.querySelectorAll(".step");
   const labelsContainer = document.querySelectorAll(".label-container");
 
+  console.log(nextBtns)
+
   const updateSteps = (activeIndex) => {
     steps.forEach((step, idx) => {
       step
@@ -32,12 +34,11 @@ window.addEventListener("DOMContentLoaded", () => {
   nextBtns.forEach((btn, index) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-
-      labelsContainer.forEach((label) => {
-        label.querySelector("span.required-error").classList.remove("visible");
-      })
-
+      
       if (index === 0) {
+        labelsContainer.forEach((label) => {
+          label.querySelector("span.required-error").classList.remove("visible");
+        })
         // Personal Info
         const inputName = document.querySelector(
           "form#personalInfo input#name",
@@ -75,6 +76,12 @@ window.addEventListener("DOMContentLoaded", () => {
           updateSteps(index + 1);
           translateSlides(index + 1);
         }
+      }
+
+      // Test
+      if(index >= 1){
+        updateSteps(index + 1);
+        translateSlides(index + 1);
       }
     });
   });
