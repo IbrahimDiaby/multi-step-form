@@ -4,49 +4,35 @@ window.addEventListener("DOMContentLoaded", () => {
   const slideSteps = document.querySelectorAll(".step-slide");
   const steps = document.querySelectorAll(".step");
 
-  previousBtns.forEach((previousBtn, index) => {
-    previousBtn.addEventListener("click", (e) => {
+  const updateSteps = (activeIndex) => {
+    steps.forEach((step, idx) => {
+      step.querySelector(".step-index")
+        .classList.toggle("active", idx === activeIndex);
+    });
+  }
+
+  const translateSlides = (targetIndex) => {
+    slideSteps.forEach((slide) => {
+      const width = slide.getBoundingClientRect().width;
+      slide.style.transform = `translateX(-${width * targetIndex}px)`;
+    });
+  }
+
+  previousBtns.forEach((btn, index) => {
+    btn.addEventListener("click", (e) => {
       e.preventDefault();
 
-      steps.forEach((step, idx) => {
-        const stepIndex =  step.querySelector(".step-index");
-        console.log(stepIndex);
-        if ( idx !== (index) ) {
-            stepIndex.classList.remove("active")
-        }
-        else {
-            stepIndex.classList.add("active");
-        } 
-      });
-
-      slideSteps.forEach((slide, idx) => {
-        const width = slide.getBoundingClientRect().width;
-        const translate = width + (width * (index-1));
-        slide.style.transform = `translateX(${translate}px)`;
-      });
+      updateSteps(index);
+      translateSlides(index);
     });
   });
 
-  nextBtns.forEach((nextBtn, index) => {
-    nextBtn.addEventListener("click", (e) => {
+  nextBtns.forEach((btn, index) => {
+    btn.addEventListener("click", (e) => {
       e.preventDefault();
 
-      steps.forEach((step, idx) => {
-        const stepIndex =  step.querySelector(".step-index");
-        console.log(stepIndex);
-        if ( idx !== (index+1) ) {
-            stepIndex.classList.remove("active")
-        }
-        else {
-            stepIndex.classList.add("active");
-        } 
-      });
-
-      slideSteps.forEach((slide) => {
-        const width = slide.getBoundingClientRect().width;
-        const translate = width * (index+1);
-        slide.style.transform = `translateX(-${translate}px)`;
-      });
+      updateSteps(index + 1);
+      translateSlides(index + 1);
     });
   });
 });

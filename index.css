@@ -256,6 +256,17 @@ form {
   border: none;
 }
 
+
+.btn-confirm {
+  background-color: var(--purple-600);
+}
+
+.btn-confirm:hover{
+  background-color: var(--purple-600);
+  color: var(--white);
+  opacity: 0.6;
+}
+
 .form-control {
   display: flex;
   flex-direction: column;
