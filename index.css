@@ -1,16 +1,16 @@
 @font-face {
   font-family: Ubuntu, sans-serif;
-  src: url("/assets/fonts/Ubuntu-Regular.ttf");
+  src: url("/multi-step-form/assets/fonts/Ubuntu-Regular.ttf");
 }
 
 @font-face {
   font-family: UbuntuBold, sans-serif;
-  src: url("/assets/fonts/Ubuntu-Bold.ttf");
+  src: url("/multi-step-form/assets/fonts/Ubuntu-Bold.ttf");
 }
 
 @font-face {
   font-family: UbuntuMedium, sans-serif;
-  src: url("/assets/fonts/Ubuntu-Medium.ttf");
+  src: url("/multi-step-form/assets/fonts/Ubuntu-Medium.ttf");
 }
 
 /* Google Font : Ubuntu */
@@ -135,7 +135,7 @@ body {
   flex-direction: column;
   gap: 15px;
   padding: 20px;
-  background: url("/assets/images/bg-sidebar-desktop.svg") no-repeat;
+  background: url("/multi-step-form/assets/images/bg-sidebar-desktop.svg") no-repeat;
   background-size: cover;
   width: clamp(250px, 300px, 50%);
   height: 100%;
