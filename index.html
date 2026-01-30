@@ -114,38 +114,55 @@
         <div class="step-slide">
           <form action="#" id="select-plan" method="post">
             <!-- Step 2 start -->
-            <h1 class="title">
-              Select your plan 
-            </h1>
+            <h1 class="title">Select your plan</h1>
             <h3 class="subtitle">
               You have the option of monthly or yearly billing.
             </h3>
 
             <div class="plans-container">
               <div class="plan active">
-                <img src="/assets/images/icon-arcade.svg" class="icon-plans" alt="Arcade Icon Plan" srcset="/assets/images/icon-arcade.svg">
+                <img
+                  src="/assets/images/icon-arcade.svg"
+                  class="icon-plans"
+                  alt="Arcade Icon Plan"
+                  srcset="/assets/images/icon-arcade.svg"
+                />
                 <div class="info">
                   <h3 class="title">Arcade</h3>
                   <p class="subtitle">$9/mo</p>
                 </div>
-              </div> 
+              </div>
               <div class="plan">
-                <img src="/assets/images/icon-advanced.svg" class="icon-plans" alt="Arcade Icon Plan" srcset="/assets/images/icon-advanced.svg">
+                <img
+                  src="/assets/images/icon-advanced.svg"
+                  class="icon-plans"
+                  alt="Arcade Icon Plan"
+                  srcset="/assets/images/icon-advanced.svg"
+                />
                 <div class="info">
                   <h3 class="title">Advanced</h3>
                   <p class="subtitle">$12/mo</p>
                 </div>
-              </div> 
+              </div>
               <div class="plan">
-                <img src="/assets/images/icon-pro.svg" class="icon-plans" alt="Arcade Icon Plan" srcset="/assets/images/icon-pro.svg">
+                <img
+                  src="/assets/images/icon-pro.svg"
+                  class="icon-plans"
+                  alt="Arcade Icon Plan"
+                  srcset="/assets/images/icon-pro.svg"
+                />
                 <div class="info">
                   <h3 class="title">Pro</h3>
                   <p class="subtitle">$15/mo</p>
                 </div>
-              </div> 
+              </div>
             </div>
-            
-            <div class="frequency"><span class="active">Monthly</span> <input type="radio" name="switch" id="switch"> <span class="">Yearly</span></div>
+
+            <div class="frequency">
+              <span class="active">Monthly</span>
+              <input type="radio" name="switch" id="switch" />
+              <span class="">Yearly</span>
+            </div>
 
             <div class="btn-container space-between">
               <button class="btn btn-outline previous">Go Back</button>
@@ -157,13 +174,46 @@
 
         <div class="step-slide">
           <!-- Step 3 start -->
-          <form action="#" method="post">
+          <form action="#" id="select-pickAddons" method="post">
             <h1 class="title">Pick add-ons</h1>
-            <h3 class="subtitle">Add-ons help enhance your gaming experience.</h3>
-            
-            Online service Access to multiplayer games +$1/mo Larger storage Extra 1TB
-            of cloud save +$2/mo Customizable Profile Custom theme on your
-            profile +$2/mo
+            <h3 class="subtitle">
+              Add-ons help enhance your gaming experience.
+            </h3>
+
+            <div class="pick-add-ons-selector active">
+              <div class="container">
+                <input type="checkbox" name="pick-addOne" id="pick-addOne" />
+                <div class="content">
+                  <h3 class="title">Online service</h3>
+                  <h4 class="subtitle">Access to multiplayer games</h4>
+                </div>
+              </div>
+              <span class="price">+$1/mo</span>
+            </div>
+            <div class="pick-add-ons-selector">
+              <div class="container">
+                <input type="checkbox" name="pick-addTwo" id="pick-addOne" />
+                <div class="content">
+                  <h3 class="title">Larger storage</h3>
+                  <h4 class="subtitle">Extra 1TB of cloud save</h4>
+                </div>
+              </div>
+              <span class="price">+$2/mo</span>
+            </div>
+            <div class="pick-add-ons-selector">
+              <div class="container">
+                <input
+                  type="checkbox"
+                  name="pick-addThree"
+                  id="pick-addThree"
+                />
+                <div class="content">
+                  <h3 class="title">Customizable Profile</h3>
+                  <h4 class="subtitle">Custom theme on your profile</h4>
+                </div>
+              </div>
+              <span class="price">+$2/mo</span>
+            </div>
 
             <div class="btn-container space-between">
               <button class="btn btn-outline previous">Go Back</button>
@@ -177,10 +227,39 @@
           <form action="#" method="post">
             <!-- Step 4 start -->
             <h1 class="title">Finishing up</h1>
-            <h3 class="subtitle">Double-check everything looks OK before confirming.</h3>
+            <p class="subtitle">
+              Double-check everything looks OK before confirming.
+            </p>
+
+            <div class="resume-content">
+              <div class="selected-plan">
+                <div class="info-container">
+                  <h3 class="title">Arcade (Monthly)</h3>
+                  <span class="change-plan">Change</span>
+                </div>
+                <div class="plan-price-container">
+                  <h3 class="title">$9/mo</h3>
+                </div>
+              </div>
+              <div class="selected-pick-add-ons">
+                <div class="pick-add-ons">
+                  <span class="subtitle">Online Service</span>
+                  <span class="price">$1/mo</span>
+                </div>
+                <div class="pick-add-ons">
+                  <span class="subtitle">Larger Storage</span>
+                  <span class="price">$2/mo</span>
+                </div>
+              </div>
+            </div>
 
             <!-- Dynamically add subscription and add-on selections here -->
-            Total (per month/year)
+            <div class="price-resume">
+              <p class="subtitle">
+                Total (per <span class="selected-frequency">month</span> )
+              </p>
+              <span class="amount">+$12/month</span>
+            </div>
             <div class="btn-container space-between">
               <button class="btn btn-outline previous">Go Back</button>
               <button class="btn btn-primary next btn-confirm">Confirm</button>
@@ -192,15 +271,19 @@
         <div class="step-slide">
           <div class="congrats-container">
             <!-- Step 5 start -->
-          <img class="icon-thank-you" src="/assets//images/icon-thank-you.svg" alt="Thank You Icon">
-           <h1 class="title">Thank you!</h1>
-          
-          <p class="subtitle">
-            Thanks for confirming your subscription! We hope you have
-            fun using our platform. If you ever need support, please feel free to
-            email us at support@loremgaming.com.
-          </p>
-          <!-- Step 5 end -->
+            <img
+              class="icon-thank-you"
+              src="/assets//images/icon-thank-you.svg"
+              alt="Thank You Icon"
+            />
+            <h1 class="title">Thank you!</h1>
+
+            <p class="subtitle">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at <a href="mailto:support@loremgaming.com" class="">support@loremgaming.com</a>.
+            </p>
+            <!-- Step 5 end -->
           </div>
         </div>
       </div>

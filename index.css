@@ -112,6 +112,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem 0;
   width: 100dvw;
   height: 100dvh;
   background-color: var(--blue-100);
@@ -378,7 +379,79 @@ label {
   height: 36px;
 }
 
-/*  */
+/* Pick Add-ons */
+.pick-add-ons-selector{
+  display: flex;
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+.pick-add-ons-selector.active, .pick-add-ons-selector:hover{
+  border: 1px solid var(--purple-600);
+}
+
+.pick-add-ons-selector .container{
+  display: flex;
+  gap: 0.75rem;
+}
+
+.pick-add-ons-selector input[type="checkbox"],
+.pick-add-ons-selector input[type="checkbox"]:checked{
+  background: var(--purple-600);
+  border: 1px solid var(--purple-600);
+  outline: none;
+}
+
+
+.pick-add-ons-selector .price{
+  color: var(--purple-600);
+  font-weight: bold;
+}
+
+
+/* Summary */
+.price-resume {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-resume .amount {
+  font-weight: bold;
+  color: var(--purple-600);
+}
+
+/* Resume Content */
+.resume-content {
+  padding: 1rem;
+  background-color: var(--blue-100);
+  border-radius: 12px;
+}
+
+.selected-pick-add-ons{
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem 0;
+}
+
+.resume-content .selected-plan, 
+.selected-pick-add-ons .pick-add-ons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-container .change-plan{
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all .6s ease-in-out;
+}
+
+.info-container .change-plan:hover{
+  color: var(--purple-600);
+}
 
 @media screen and (width < 375px) {
 }
