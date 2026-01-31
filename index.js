@@ -4,8 +4,71 @@ window.addEventListener("DOMContentLoaded", () => {
   const slideSteps = document.querySelectorAll(".step-slide");
   const steps = document.querySelectorAll(".step");
   const labelsContainer = document.querySelectorAll(".label-container");
+  const pickAddOns = document.querySelectorAll(".pick-add-ons-selector");
+  const plans = document.querySelectorAll(".plans-container .plan");
 
-  console.log(nextBtns)
+  plans.forEach((plan, index) => {
+    plan.addEventListener("click", () => {
+      // Remove the old one
+      plans.forEach(pl => pl.classList.remove("active"));
+
+      // Choose the new one
+      plan.classList.toggle("active");
+
+      // Update plan information
+      data = {...data, plan: plansList[index]};
+    });
+  });
+
+  const currency = {
+    title: "Dollar",
+    symbol: "$"
+  };
+
+  const addOns = [
+    {
+      title : "Online service",
+      subtitle: "Access to multiplayer games",
+      price: "1",
+    },
+    {
+      title : "Larger storage",
+      subtitle: "Extra 1TB of cloud save",
+      price: "2",
+    },
+    {
+      title : "Customizable Profile",
+      subtitle: "Custom theme on your profile",
+      price: "2"
+    }
+  ];
+
+  const frequenciesList = ["Monthly", "Yearly"];
+
+  const plansList = [
+    {
+      title: "Arcade",
+      pricePerMonth: "9",
+    },
+    {
+      title: "Advanced",
+      pricePerMonth: "12",
+    },
+    {
+      title: "Pro",
+      pricePerMonth: "15",
+    }
+  ];
+
+  // Form Data
+  let data = {
+    fullname : "",
+    email: "",
+    tel: "",
+    plan: plansList[0], // 
+    frequency: frequenciesList[0], // Monthly Or Yearly
+    addOns: [],
+  };
 
   const updateSteps = (activeIndex) => {
     steps.forEach((step, idx) => {
@@ -75,6 +138,9 @@ window.addEventListener("DOMContentLoaded", () => {
         ) {
           updateSteps(index + 1);
           translateSlides(index + 1);
+
+          data = {...data, fullname : inputName.value, email: inputEmail.value, tel: inputTel.value}
+          console.log(data);
         }
       }
 
