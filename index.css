@@ -353,6 +353,7 @@ label {
 }
 
 .frequency{
+  padding: 0.25rem 0;
   font-weight: bold;
   display: flex;
   background-color: var(--blue-100);

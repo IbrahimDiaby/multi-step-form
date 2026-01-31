@@ -7,6 +7,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const pickAddOns = document.querySelectorAll(".pick-add-ons-selector");
   const plans = document.querySelectorAll(".plans-container .plan");
   const switchInput = document.querySelector(".switch-input");
+  const changePlanBtn = document.querySelector("#change-plan");
+
+  changePlanBtn.addEventListener("click", () => {
+    updateSteps(1);
+    translateSlides(1);
+  });
 
   const switchBtn = document.querySelector(".btn-switch");
 
@@ -20,8 +26,8 @@ window.addEventListener("DOMContentLoaded", () => {
     yearly.classList.toggle("active");
 
     data = {...data, frequency: yearly.classList.contains("active") ? frequenciesList[1] : frequenciesList[0] };
-    console.log(data);
-  })
+    updateResume();
+  });
 
   plans.forEach((plan, index) => {
     plan.addEventListener("click", () => {
@@ -34,6 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // Update plan information
       data = {...data, plan: plansList[index]};
     });
+    updateResume();
   });
 
   pickAddOns.forEach((pickAdd, index) => {
@@ -47,15 +54,18 @@ window.addEventListener("DOMContentLoaded", () => {
       // Update select indicator
       input.addEventListener("change", (e) => {
         pickAdd.classList.toggle("active");
-        console.log(e);
-      });
 
-      // TODO: Need to be fix
-      const addOnsFiltered = data.addOns.includes(addOns[index]);
-      // Update data
-      data  = {...data, addOns: data.addOns};
-    })
-  })
+        // Filtered Add Ons
+        const toAdd = pickAdd.classList.contains("active");
+        const currentAddOns = [...data.addOns];
+        const newAddOns = toAdd ? [...currentAddOns, addOns[index]] : [...currentAddOns.filter(el => el.title !== addOns[index].title)];
+        // Update data
+        data  = {...data, addOns: newAddOns};
+        console.log(data);
+      });
+    });
+    updateResume();
+  });
 
   const currency = {
     title: "Dollar",
@@ -104,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
     tel: "",
     plan: plansList[0], // 
     frequency: frequenciesList[0], // Monthly Or Yearly
-    addOns: [],
+    addOns: [addOns[0]],
   };
 
   const updateSteps = (activeIndex) => {
@@ -177,7 +187,6 @@ window.addEventListener("DOMContentLoaded", () => {
           translateSlides(index + 1);
 
           data = {...data, fullname : inputName.value, email: inputEmail.value, tel: inputTel.value}
-          console.log(data);
         }
       }
 
@@ -188,4 +197,10 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const resume = (data) => {
+    // TODO : Implement resume
+  }
+
+  const updateResume = () => { resume(); }
 });
