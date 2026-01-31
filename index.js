@@ -6,6 +6,22 @@ window.addEventListener("DOMContentLoaded", () => {
   const labelsContainer = document.querySelectorAll(".label-container");
   const pickAddOns = document.querySelectorAll(".pick-add-ons-selector");
   const plans = document.querySelectorAll(".plans-container .plan");
+  const switchInput = document.querySelector(".switch-input");
+
+  const switchBtn = document.querySelector(".btn-switch");
+
+  switchBtn.addEventListener("click", () => {
+    const frequency = document.querySelector(".frequency");
+    const monthly = document.querySelector(".frequency span.monthly");
+    const yearly = document.querySelector(".frequency span.yearly");
+    switchBtn.classList.toggle("active");
+
+    monthly.classList.toggle("active");
+    yearly.classList.toggle("active");
+
+    data = {...data, frequency: yearly.classList.contains("active") ? frequenciesList[1] : frequenciesList[0] };
+    console.log(data);
+  })
 
   plans.forEach((plan, index) => {
     plan.addEventListener("click", () => {
@@ -19,6 +35,27 @@ window.addEventListener("DOMContentLoaded", () => {
       data = {...data, plan: plansList[index]};
     });
   });
+
+  pickAddOns.forEach((pickAdd, index) => {
+    pickAdd.addEventListener("click", (e) => {
+      // Update checkbox
+      const input = pickAdd.querySelector("input");
+      if(e.target.tagName.toString().toLowerCase() !== "input"){
+        input.click();
+      }
+
+      // Update select indicator
+      input.addEventListener("change", (e) => {
+        pickAdd.classList.toggle("active");
+        console.log(e);
+      });
+
+      // TODO: Need to be fix
+      const addOnsFiltered = data.addOns.includes(addOns[index]);
+      // Update data
+      data  = {...data, addOns: data.addOns};
+    })
+  })
 
   const currency = {
     title: "Dollar",

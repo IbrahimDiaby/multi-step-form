@@ -364,6 +364,7 @@ label {
 }
 
 .frequency span.active{
+  transition: all .6s ease-in-out;
   color: var(--blue-950);
 }
 
@@ -387,6 +388,7 @@ label {
   align-items: center;
   border: 1px solid #000;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .pick-add-ons-selector.active, .pick-add-ons-selector:hover{
@@ -451,6 +453,38 @@ label {
 
 .info-container .change-plan:hover{
   color: var(--purple-600);
+}
+
+/* Switch */
+.switch{
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: var(--blue-950);
+  width: 60px;
+  height: 30px;
+  border-radius: 1rem;
+}
+
+.switch input{
+  display: none;
+}
+
+.btn-switch{
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0px 0px 1rem var(--grey-500);
+  cursor: pointer;
+  left: 5%;
+  transition: all .6s ease-in-out;
+}
+
+.btn-switch.active{
+  left: 50%;
 }
 
 @media screen and (width < 375px) {
