@@ -9,6 +9,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const switchInput = document.querySelector(".switch-input");
   const changePlanBtn = document.querySelector("#change-plan");
 
+  const resume = (data) => {
+    // TODO : Implement resume
+  };
+
+  const updateResume = () => {
+    resume();
+  };
+
   changePlanBtn.addEventListener("click", () => {
     updateSteps(1);
     translateSlides(1);
@@ -25,20 +33,25 @@ window.addEventListener("DOMContentLoaded", () => {
     monthly.classList.toggle("active");
     yearly.classList.toggle("active");
 
-    data = {...data, frequency: yearly.classList.contains("active") ? frequenciesList[1] : frequenciesList[0] };
+    data = {
+      ...data,
+      frequency: yearly.classList.contains("active")
+        ? frequenciesList[1]
+        : frequenciesList[0],
+    };
     updateResume();
   });
 
   plans.forEach((plan, index) => {
     plan.addEventListener("click", () => {
       // Remove the old one
-      plans.forEach(pl => pl.classList.remove("active"));
+      plans.forEach((pl) => pl.classList.remove("active"));
 
       // Choose the new one
       plan.classList.toggle("active");
 
       // Update plan information
-      data = {...data, plan: plansList[index]};
+      data = { ...data, plan: plansList[index] };
     });
     updateResume();
   });
@@ -47,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
     pickAdd.addEventListener("click", (e) => {
       // Update checkbox
       const input = pickAdd.querySelector("input");
-      if(e.target.tagName.toString().toLowerCase() !== "input"){
+      if (e.target.tagName.toString().toLowerCase() !== "input") {
         input.click();
       }
 
@@ -58,9 +71,11 @@ window.addEventListener("DOMContentLoaded", () => {
         // Filtered Add Ons
         const toAdd = pickAdd.classList.contains("active");
         const currentAddOns = [...data.addOns];
-        const newAddOns = toAdd ? [...currentAddOns, addOns[index]] : [...currentAddOns.filter(el => el.title !== addOns[index].title)];
+        const newAddOns = toAdd
+          ? [...currentAddOns, addOns[index]]
+          : [...currentAddOns.filter((el) => el.title !== addOns[index].title)];
         // Update data
-        data  = {...data, addOns: newAddOns};
+        data = { ...data, addOns: newAddOns };
         console.log(data);
       });
     });
@@ -69,25 +84,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const currency = {
     title: "Dollar",
-    symbol: "$"
+    symbol: "$",
   };
 
   const addOns = [
     {
-      title : "Online service",
+      title: "Online service",
       subtitle: "Access to multiplayer games",
       price: "1",
     },
     {
-      title : "Larger storage",
+      title: "Larger storage",
       subtitle: "Extra 1TB of cloud save",
       price: "2",
     },
     {
-      title : "Customizable Profile",
+      title: "Customizable Profile",
       subtitle: "Custom theme on your profile",
-      price: "2"
-    }
+      price: "2",
+    },
   ];
 
   const frequenciesList = ["Monthly", "Yearly"];
@@ -104,15 +119,15 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       title: "Pro",
       pricePerMonth: "15",
-    }
+    },
   ];
 
   // Form Data
   let data = {
-    fullname : "",
+    fullname: "",
     email: "",
     tel: "",
-    plan: plansList[0], // 
+    plan: plansList[0], //
     frequency: frequenciesList[0], // Monthly Or Yearly
     addOns: [addOns[0]],
   };
@@ -144,11 +159,13 @@ window.addEventListener("DOMContentLoaded", () => {
   nextBtns.forEach((btn, index) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      
+
       if (index === 0) {
         labelsContainer.forEach((label) => {
-          label.querySelector("span.required-error").classList.remove("visible");
-        })
+          label
+            .querySelector("span.required-error")
+            .classList.remove("visible");
+        });
         // Personal Info
         const inputName = document.querySelector(
           "form#personalInfo input#name",
@@ -164,7 +181,7 @@ window.addEventListener("DOMContentLoaded", () => {
             .classList.toggle("visible");
         }
 
-        if (inputEmail.value === "") {;
+        if (inputEmail.value === "") {
           labelsContainer[1]
             .querySelector("span.required-error")
             .classList.toggle("visible");
@@ -186,21 +203,20 @@ window.addEventListener("DOMContentLoaded", () => {
           updateSteps(index + 1);
           translateSlides(index + 1);
 
-          data = {...data, fullname : inputName.value, email: inputEmail.value, tel: inputTel.value}
+          data = {
+            ...data,
+            fullname: inputName.value,
+            email: inputEmail.value,
+            tel: inputTel.value,
+          };
         }
       }
 
       // Test
-      if(index >= 1){
+      if (index >= 1) {
         updateSteps(index + 1);
         translateSlides(index + 1);
       }
     });
   });
-
-  const resume = (data) => {
-    // TODO : Implement resume
-  }
-
-  const updateResume = () => { resume(); }
 });

@@ -128,7 +128,7 @@ body {
   height: 70%;
 }
 
-/* SIDEBAR */
+/* Sidebar */
 
 .sidebar {
   display: flex;
@@ -137,8 +137,8 @@ body {
   padding: 20px;
   background: url("/assets/images/bg-sidebar-desktop.svg") no-repeat;
   background-size: cover;
-  width: clamp(250px, 300px, 50%);
-  height: 100%;
+  width: clamp(250px, 300px, 100%);
+  /* height: 100%; */
   color: var(--white);
   border-radius: 12px;
   text-transform: uppercase;
@@ -326,7 +326,6 @@ label {
 }
 
 /* Plans */
-
 .plans-container {
   display: flex;
   gap: 10px 20px;
@@ -348,11 +347,12 @@ label {
   flex: 1 1 150;
 }
 
-.plan.active, .plan:hover {
+.plan.active,
+.plan:hover {
   border: 1px solid var(--purple-600);
 }
 
-.frequency{
+.frequency {
   padding: 0.25rem 0;
   font-weight: bold;
   display: flex;
@@ -364,8 +364,8 @@ label {
   color: var(--grey-500);
 }
 
-.frequency span.active{
-  transition: all .6s ease-in-out;
+.frequency span.active {
+  transition: all 0.6s ease-in-out;
   color: var(--blue-950);
 }
 
@@ -382,7 +382,7 @@ label {
 }
 
 /* Pick Add-ons */
-.pick-add-ons-selector{
+.pick-add-ons-selector {
   display: flex;
   padding: 20px 10px;
   justify-content: space-between;
@@ -392,28 +392,27 @@ label {
   cursor: pointer;
 }
 
-.pick-add-ons-selector.active, .pick-add-ons-selector:hover{
+.pick-add-ons-selector.active,
+.pick-add-ons-selector:hover {
   border: 1px solid var(--purple-600);
 }
 
-.pick-add-ons-selector .container{
+.pick-add-ons-selector .container {
   display: flex;
   gap: 0.75rem;
 }
 
 .pick-add-ons-selector input[type="checkbox"],
-.pick-add-ons-selector input[type="checkbox"]:checked{
+.pick-add-ons-selector input[type="checkbox"]:checked {
   accent-color: var(--purple-600);
   border: 1px solid var(--purple-600);
   outline: none;
 }
 
-
-.pick-add-ons-selector .price{
+.pick-add-ons-selector .price {
   color: var(--purple-600);
   font-weight: bold;
 }
-
 
 /* Summary */
 .price-resume {
@@ -433,31 +432,31 @@ label {
   border-radius: 12px;
 }
 
-.selected-pick-add-ons{
+.selected-pick-add-ons {
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
-  gap: .5rem 0;
+  gap: 0.5rem 0;
 }
 
-.resume-content .selected-plan, 
-.selected-pick-add-ons .pick-add-ons{
+.resume-content .selected-plan,
+.selected-pick-add-ons .pick-add-ons {
   display: flex;
   justify-content: space-between;
 }
 
-.info-container .change-plan{
+.info-container .change-plan {
   text-decoration: underline;
   cursor: pointer;
-  transition: all .6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-.info-container .change-plan:hover{
+.info-container .change-plan:hover {
   color: var(--purple-600);
 }
 
 /* Switch */
-.switch{
+.switch {
   padding: 0.25rem;
   display: flex;
   align-items: center;
@@ -468,11 +467,11 @@ label {
   border-radius: 1rem;
 }
 
-.switch input{
+.switch input {
   display: none;
 }
 
-.btn-switch{
+.btn-switch {
   position: absolute;
   background-color: white;
   border-radius: 50%;
@@ -481,14 +480,60 @@ label {
   box-shadow: 0px 0px 1rem var(--grey-500);
   cursor: pointer;
   left: 5%;
-  transition: all .6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-.btn-switch.active{
+.btn-switch.active {
   left: 50%;
 }
 
 @media screen and (width < 375px) {
+  .step {
+    height: 40px;
+  }
+
+  .card {
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    background: url("/assets/images/bg-sidebar-mobile.svg") no-repeat;
+    background-size: contain;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 200px;
+    height: 100px;
+    width: 100%;
+    /* gap: 15px; */
+    /* padding: 20px; */
+  }
+
+  .step-slide{
+    padding: 0 5px;
+  }
+
+  /* .step-card-container{
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    width: 95%;
+    transform: translateY(-50px);
+    border-radius: 12px;
+  } */
+
+  .plans-container{
+    flex-direction: column;
+  }
+
+  .step-content {
+    display: none;
+  }
 }
 
 @media screen and (width >= 1440px) {
